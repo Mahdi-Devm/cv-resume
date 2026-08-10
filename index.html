@@ -1,0 +1,1609 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="مهدی باقری — توسعه‌دهنده نرم‌افزار متخصص در Next.js و توسعه فرانت‌اند مقیاس‌پذیر."
+    />
+    <title>مهدی باقری — توسعه‌دهنده نرم‌افزار</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Mahdi Bagheri — Premium Resume
+   Purple / Black editorial-tech aesthetic
+*/
+
+      :root {
+        --bg: #070609;
+        --surface: #0d0b12;
+        --surface-2: #12101a;
+        --text: #f6f3ff;
+        --muted: #a7a0b7;
+        --line: rgba(255, 255, 255, 0.1);
+        --purple: #9b5cff;
+        --purple-2: #6d28d9;
+        --violet-glow: rgba(155, 92, 255, 0.28);
+        --max: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background: var(--bg);
+      }
+
+      body {
+        margin: 0;
+        color: var(--text);
+        background:
+          radial-gradient(
+            circle at 15% 10%,
+            rgba(109, 40, 217, 0.15),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 90% 30%,
+            rgba(155, 92, 255, 0.1),
+            transparent 30%
+          ),
+          var(--bg);
+        font-family: "Vazirmatn", sans-serif;
+        line-height: 1.9;
+        overflow-x: hidden;
+        direction: rtl;
+      }
+
+      body::selection {
+        background: var(--purple);
+        color: #fff;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .noise {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 10;
+        opacity: 0.035;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+      }
+
+      .grid-bg {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.22;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+          );
+        background-size: 70px 70px;
+        mask-image: linear-gradient(to bottom, black, transparent 75%);
+      }
+
+      .orb {
+        position: fixed;
+        width: 420px;
+        height: 420px;
+        border-radius: 50%;
+        filter: blur(100px);
+        pointer-events: none;
+        z-index: -1;
+        animation: float 10s ease-in-out infinite;
+      }
+      .orb-one {
+        background: rgba(109, 40, 217, 0.18);
+        top: -180px;
+        left: -100px;
+      }
+      .orb-two {
+        background: rgba(155, 92, 255, 0.12);
+        right: -180px;
+        top: 45%;
+        animation-delay: -4s;
+      }
+
+      .resume {
+        width: min(calc(100% - 40px), var(--max));
+        margin: auto;
+        padding: 80px 0 45px;
+      }
+
+      .hero {
+        min-height: 620px;
+        display: grid;
+        grid-template-columns: 1.5fr 0.7fr;
+        align-items: center;
+        gap: 80px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: #bda9df;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+
+      .status-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--purple);
+        box-shadow: 0 0 18px var(--purple);
+        animation: pulse 2s infinite;
+      }
+
+      h1,
+      h2,
+      h3,
+      .hero-role,
+      .footer-mark {
+        font-family: "Space Grotesk", sans-serif;
+      }
+
+      h1 {
+        margin: 18px 0 4px;
+        font-size: clamp(58px, 9vw, 116px);
+        line-height: 0.86;
+        letter-spacing: -0.03em;
+        font-weight: 700;
+      }
+
+      h1 span {
+        display: block;
+        background: linear-gradient(100deg, #fff 15%, #9b5cff 75%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-role {
+        margin: 24px 0;
+        color: #ddd6eb;
+        font-size: 17px;
+        letter-spacing: 0.03em;
+      }
+
+      .intro {
+        max-width: 760px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .contact-row {
+        direction: rtl;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 22px;
+        margin-top: 30px;
+        color: #d7d1e2;
+        font-size: 13px;
+      }
+
+      .contact-row a:hover,
+      .socials a:hover,
+      .project-link:hover,
+      .link-cloud a:hover {
+        color: var(--purple);
+      }
+
+      .socials {
+        display: flex;
+        gap: 24px;
+        margin-top: 16px;
+        color: #b6adca;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .hero-card {
+        position: relative;
+        padding: 28px;
+        min-height: 260px;
+        border: 1px solid rgba(155, 92, 255, 0.25);
+        background: linear-gradient(
+          145deg,
+          rgba(155, 92, 255, 0.11),
+          rgba(255, 255, 255, 0.025)
+        );
+        box-shadow:
+          0 0 70px rgba(109, 40, 217, 0.13),
+          inset 0 0 40px rgba(255, 255, 255, 0.02);
+        overflow: hidden;
+        transform: rotate(2deg);
+        animation: cardFloat 5s ease-in-out infinite;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        pointer-events: none;
+      }
+
+      .hero-card-top {
+        display: flex;
+        justify-content: space-between;
+        color: #8d849e;
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        font-weight: 800;
+      }
+
+      .live {
+        color: #b477ff;
+        text-shadow: 0 0 14px #9b5cff;
+      }
+
+      .hero-card strong {
+        display: block;
+        margin: 45px 0 25px;
+        font:
+          600 27px/1.15 "Space Grotesk",
+          sans-serif;
+      }
+
+      .code-line {
+        direction: ltr;
+        text-align: left;
+        color: #7e748d;
+        font:
+          12px/2.1 "Space Grotesk",
+          monospace;
+      }
+      .code-line span {
+        color: #b477ff;
+      }
+      .code-line b {
+        color: #e4d4ff;
+        font-weight: 500;
+      }
+
+      .scan {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: rgba(155, 92, 255, 0.55);
+        box-shadow: 0 0 14px var(--purple);
+        animation: scan 3.5s linear infinite;
+      }
+
+      .section {
+        padding: 95px 0 0;
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: baseline;
+        gap: 18px;
+        margin-bottom: 35px;
+      }
+
+      .section-heading > span {
+        color: var(--purple);
+        font:
+          700 12px "Space Grotesk",
+          sans-serif;
+      }
+
+      .section-heading h2 {
+        margin: 0;
+        font-size: 34px;
+        letter-spacing: -0.045em;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+      }
+
+      .skill-card {
+        position: relative;
+        min-height: 225px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.035),
+          rgba(255, 255, 255, 0.012)
+        );
+        transition: 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+        overflow: hidden;
+      }
+
+      .skill-card::after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        right: -40px;
+        bottom: -40px;
+        border-radius: 50%;
+        background: var(--violet-glow);
+        filter: blur(35px);
+      }
+
+      .skill-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(155, 92, 255, 0.45);
+        box-shadow:
+          0 20px 60px rgba(0, 0, 0, 0.35),
+          0 0 40px rgba(109, 40, 217, 0.09);
+      }
+
+      .skill-index,
+      .project-number {
+        color: #6f667d;
+        font:
+          700 11px "Space Grotesk",
+          monospace;
+      }
+
+      .skill-card h3 {
+        margin: 35px 0 8px;
+        font-size: 23px;
+      }
+
+      .skill-card p {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 0 0 20px;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
+      .tags span {
+        padding: 5px 9px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #aaa1b8;
+        font-size: 10px;
+      }
+
+      .timeline {
+        border-top: 1px solid var(--line);
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 45px;
+        padding: 42px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .timeline-meta {
+        direction: ltr;
+        text-align: right;
+        position: relative;
+        color: #766d82;
+        font:
+          700 10px "Space Grotesk",
+          sans-serif;
+        letter-spacing: 0.1em;
+      }
+
+      .timeline-meta i {
+        position: absolute;
+        top: 4px;
+        right: -55px;
+        width: 9px;
+        height: 9px;
+        border: 2px solid var(--purple);
+        border-radius: 50%;
+        background: var(--bg);
+        box-shadow: 0 0 18px var(--purple);
+      }
+
+      .timeline-content h3 {
+        margin: 0;
+        font-size: 25px;
+        letter-spacing: -0.035em;
+      }
+
+      .timeline-content h4 {
+        margin: 4px 0 18px;
+        font:
+          500 14px "Space Grotesk",
+          sans-serif;
+        color: #b9afc8;
+      }
+
+      .timeline-content h4 em {
+        color: #6e6677;
+        font-style: normal;
+      }
+
+      .timeline-content ul {
+        margin: 0;
+        padding-right: 18px;
+        padding-left: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .timeline-content li {
+        margin: 7px 0;
+      }
+
+      .project-link,
+      .link-cloud a {
+        display: inline-block;
+        margin-top: 18px;
+        color: #c59cff;
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .link-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px 18px;
+      }
+      .link-cloud a {
+        margin-top: 15px;
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      .project-card {
+        position: relative;
+        min-height: 310px;
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        gap: 18px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.035),
+          rgba(255, 255, 255, 0.01)
+        );
+        overflow: hidden;
+        transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          120deg,
+          transparent 35%,
+          rgba(155, 92, 255, 0.12),
+          transparent 65%
+        );
+        transform: translateX(-120%);
+        transition: 0.7s ease;
+      }
+
+      .project-card:hover::before {
+        transform: translateX(120%);
+      }
+
+      .project-card:hover {
+        transform: translateY(-7px);
+        border-color: rgba(155, 92, 255, 0.45);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+      }
+
+      .project-card.featured {
+        grid-column: span 2;
+        min-height: 280px;
+        background:
+          radial-gradient(
+            circle at 90% 10%,
+            rgba(155, 92, 255, 0.18),
+            transparent 35%
+          ),
+          linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(255, 255, 255, 0.01)
+          );
+      }
+
+      .project-top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 18px;
+        color: #777080;
+        font:
+          700 10px "Space Grotesk",
+          sans-serif;
+        letter-spacing: 0.12em;
+      }
+
+      .project-top b {
+        color: #ad8ad2;
+      }
+
+      .project-card h3 {
+        margin: 0 0 12px;
+        font-size: 31px;
+        letter-spacing: -0.05em;
+      }
+
+      .project-card p {
+        max-width: 680px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .project-card small {
+        display: block;
+        margin-top: 20px;
+        color: #777080;
+        font-size: 10px;
+      }
+
+      .arrow {
+        position: absolute;
+        top: 27px;
+        left: 28px;
+        font-size: 20px;
+        color: #8c8397;
+        transition: 0.3s ease;
+      }
+      .project-card:hover .arrow {
+        color: var(--purple);
+        transform: translate(3px, -3px);
+      }
+
+      .footer {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr auto;
+        gap: 40px;
+        align-items: end;
+        margin-top: 95px;
+        padding: 30px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .footer > div {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .footer strong {
+        font:
+          600 13px "Space Grotesk",
+          sans-serif;
+        color: #d5cedf;
+      }
+
+      .footer-mark {
+        font-size: 34px;
+        font-weight: 700;
+        letter-spacing: -0.08em;
+      }
+      .footer-mark span {
+        color: var(--purple);
+      }
+
+      .reveal {
+        animation: reveal 0.9s both;
+      }
+      .section.reveal:nth-of-type(2) {
+        animation-delay: 0.12s;
+      }
+      .section.reveal:nth-of-type(3) {
+        animation-delay: 0.2s;
+      }
+
+      @keyframes reveal {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(30px, 35px);
+        }
+      }
+
+      @keyframes cardFloat {
+        0%,
+        100% {
+          transform: rotate(2deg) translateY(0);
+        }
+        50% {
+          transform: rotate(0deg) translateY(-10px);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          box-shadow: 0 0 16px var(--purple);
+        }
+        50% {
+          opacity: 0.5;
+          box-shadow: 0 0 28px var(--purple);
+        }
+      }
+
+      @keyframes scan {
+        from {
+          top: 0;
+        }
+        to {
+          top: 100%;
+        }
+      }
+
+      @media (max-width: 850px) {
+        .resume {
+          padding-top: 45px;
+        }
+        .hero {
+          min-height: auto;
+          grid-template-columns: 1fr;
+          gap: 45px;
+          padding-bottom: 60px;
+        }
+        .hero-card {
+          max-width: 500px;
+          width: 100%;
+          justify-self: end;
+        }
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+        .timeline-item {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .timeline-meta i {
+          display: none;
+        }
+        .projects {
+          grid-template-columns: 1fr;
+        }
+        .project-card.featured {
+          grid-column: span 1;
+        }
+        .footer {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer-mark {
+          display: none !important;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .resume {
+          width: min(calc(100% - 28px), var(--max));
+        }
+        h1 {
+          font-size: clamp(54px, 18vw, 85px);
+        }
+        .section {
+          padding-top: 65px;
+        }
+        .section-heading h2 {
+          font-size: 27px;
+        }
+        .contact-row {
+          direction: rtl;
+          flex-direction: column;
+          gap: 6px;
+        }
+        .project-card {
+          min-height: 290px;
+        }
+        .footer {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 10mm;
+        }
+        body {
+          background: #fff;
+          color: #111;
+        }
+        .noise,
+        .grid-bg,
+        .orb {
+          display: none;
+        }
+        .resume {
+          width: 100%;
+          padding: 0;
+        }
+        .hero {
+          min-height: auto;
+        }
+        .hero-card {
+          display: none;
+        }
+        .section {
+          padding-top: 28px;
+        }
+        .skill-card,
+        .project-card {
+          break-inside: avoid;
+        }
+        a {
+          color: inherit;
+        }
+      }
+
+      /* Embedded interactive layer */
+      :root {
+        --mx: 50vw;
+        --my: 50vh;
+      }
+      .cursor-glow {
+        position: fixed;
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 0;
+        background: radial-gradient(
+          circle,
+          rgba(155, 92, 255, 0.11),
+          rgba(155, 92, 255, 0) 68%
+        );
+        filter: blur(8px);
+        mix-blend-mode: screen;
+      }
+      .resume {
+        position: relative;
+        z-index: 1;
+      }
+      .reveal,
+      .skill-card,
+      .timeline-item,
+      .project-card {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+          border-color 0.4s ease,
+          box-shadow 0.4s ease;
+      }
+      .reveal.is-visible,
+      .skill-card.is-visible,
+      .timeline-item.is-visible,
+      .project-card.is-visible {
+        opacity: 1;
+        transform: translateY(0) rotateX(var(--rx, 0deg))
+          rotateY(var(--ry, 0deg));
+      }
+      .skill-card,
+      .project-card,
+      .hero-card {
+        transform-style: preserve-3d;
+        will-change: transform;
+      }
+      .hero-card {
+        --rx: 0deg;
+        --ry: 0deg;
+      }
+      .hero-card:hover {
+        transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry))
+          translateY(-4px);
+      }
+      @media (hover: none) {
+        .cursor-glow {
+          display: none;
+        }
+      }
+
+      /* Persian RTL typography refinement */
+      html,
+      body {
+        direction: rtl;
+        text-align: right;
+      }
+      body {
+        font-family: "Vazirmatn", sans-serif;
+        letter-spacing: 0;
+        word-spacing: 0;
+        line-height: 2;
+      }
+      h1,
+      h2,
+      h3,
+      .hero-role,
+      .footer-mark,
+      .eyebrow,
+      .section-heading > span,
+      .skill-index,
+      .project-number,
+      .timeline-meta,
+      .timeline-content h4,
+      .project-top {
+        font-family: "Estedad", "Vazirmatn", sans-serif;
+        letter-spacing: 0 !important;
+      }
+      h1 {
+        font-weight: 800;
+        line-height: 1.15;
+        margin: 20px 0 10px;
+      }
+      h1 span {
+        display: inline;
+        margin-right: 0.12em;
+      }
+      .hero-copy {
+        min-width: 0;
+      }
+      .hero-role {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.7;
+      }
+      .intro {
+        font-size: 15px;
+        line-height: 2.15;
+      }
+      .contact-row {
+        line-height: 1.9;
+      }
+      .section-heading {
+        gap: 16px;
+        margin-bottom: 40px;
+      }
+      .section-heading h2 {
+        line-height: 1.4;
+      }
+      .skill-card,
+      .project-card,
+      .hero-card {
+        text-align: right;
+      }
+      .skill-card h3 {
+        margin: 30px 0 10px;
+        line-height: 1.4;
+      }
+      .skill-card p,
+      .project-card p {
+        line-height: 2.05;
+      }
+      .tags {
+        gap: 8px;
+      }
+      .timeline-content h3 {
+        line-height: 1.5;
+      }
+      .timeline-content h4 {
+        line-height: 1.8;
+      }
+      .timeline-content ul {
+        padding-left: 0;
+        padding-right: 20px;
+        line-height: 2.1;
+      }
+      .timeline-content li {
+        margin: 8px 0;
+      }
+      .timeline-meta {
+        letter-spacing: 0 !important;
+      }
+      .timeline-meta i {
+        right: auto;
+        left: -55px;
+      }
+      .arrow {
+        right: auto;
+        left: 28px;
+        transform: scaleX(-1);
+      }
+      .project-card:hover .arrow {
+        transform: scaleX(-1) translate(3px, -3px);
+      }
+      @media (max-width: 850px) {
+        .timeline-item {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .timeline-meta i {
+          display: none;
+        }
+      }
+      @media (max-width: 560px) {
+        .intro {
+          font-size: 14px;
+        }
+        .hero-role {
+          font-size: 16px;
+        }
+      }
+
+      /* ===== Premium Persian / HR Resume Polish ===== */
+      :root {
+        --text-soft: #ddd6e9;
+        --purple-soft: #c49bff;
+        --card-border: rgba(196, 155, 255, 0.18);
+      }
+
+      body {
+        font-family: "Vazirmatn", sans-serif;
+        direction: rtl;
+        text-align: right;
+        line-height: 2;
+        letter-spacing: 0;
+        word-spacing: 0.02em;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      .hero-role,
+      .hero-value,
+      .section-heading > span,
+      .skill-index,
+      .project-number,
+      .timeline-meta,
+      .project-top,
+      .footer-mark,
+      .eyebrow {
+        font-family: "Estedad", "Vazirmatn", sans-serif;
+        letter-spacing: 0 !important;
+      }
+
+      h1 {
+        font-weight: 800;
+        line-height: 1.05;
+        margin: 18px 0 10px;
+      }
+
+      h1 span {
+        margin-right: 0.12em;
+      }
+
+      .hero-role {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.8;
+        margin: 16px 0 4px;
+      }
+
+      .hero-value {
+        color: var(--purple-soft);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.9;
+        margin: 0 0 8px;
+      }
+
+      .intro {
+        max-width: 790px;
+        font-size: 14px;
+        line-height: 2.2;
+        color: var(--text-soft);
+      }
+
+      .contact-row {
+        gap: 8px 24px;
+        margin-top: 22px;
+      }
+      .socials {
+        gap: 24px;
+        margin-top: 12px;
+      }
+
+      .section {
+        padding-top: 82px;
+      }
+      .section-heading {
+        margin-bottom: 32px;
+        gap: 15px;
+      }
+      .section-heading h2 {
+        font-size: 31px;
+        line-height: 1.4;
+        font-weight: 800;
+      }
+
+      .skills-grid,
+      .projects {
+        gap: 15px;
+      }
+      .skill-card,
+      .project-card {
+        border-color: var(--card-border);
+      }
+      .skill-card {
+        padding: 25px;
+        min-height: 220px;
+      }
+      .skill-card h3 {
+        margin: 25px 0 8px;
+        font-size: 21px;
+        line-height: 1.45;
+      }
+      .skill-card p,
+      .project-card p {
+        line-height: 2.05;
+      }
+      .tags {
+        gap: 7px;
+      }
+      .tags span {
+        padding: 5px 9px;
+        line-height: 1.5;
+      }
+
+      .timeline-item {
+        grid-template-columns: 225px 1fr;
+        gap: 42px;
+        padding: 38px 0;
+      }
+      .timeline-meta {
+        font-size: 10px;
+        line-height: 1.9;
+      }
+      .timeline-content h3 {
+        font-size: 23px;
+        line-height: 1.5;
+      }
+      .timeline-content h4 {
+        line-height: 1.8;
+        margin: 4px 0 14px;
+      }
+      .timeline-content ul {
+        padding: 0 20px 0 0;
+        line-height: 2.05;
+      }
+      .timeline-content li {
+        margin: 6px 0;
+      }
+
+      .project-card {
+        padding: 26px;
+        min-height: 285px;
+      }
+      .project-card h3 {
+        font-size: 28px;
+        line-height: 1.4;
+      }
+      .project-top {
+        line-height: 1.7;
+      }
+      .arrow {
+        right: auto;
+        left: 26px;
+        transform: scaleX(-1);
+      }
+      .project-card:hover .arrow {
+        transform: scaleX(-1) translate(3px, -3px);
+      }
+
+      /* Technical names, URLs and Latin stacks keep natural LTR rendering. */
+      .hero-role,
+      .tags,
+      .contact-row a,
+      .socials a,
+      .project-link,
+      .link-cloud a,
+      .project-top b {
+        unicode-bidi: plaintext;
+      }
+
+      .footer {
+        margin-top: 82px;
+        text-align: right;
+      }
+
+      @media (max-width: 850px) {
+        .timeline-item {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+        .timeline-meta i {
+          display: none;
+        }
+      }
+
+      @media (max-width: 560px) {
+        h1 {
+          font-size: clamp(50px, 17vw, 82px);
+        }
+        .hero-role {
+          font-size: 16px;
+        }
+        .hero-value {
+          font-size: 13px;
+        }
+        .intro {
+          font-size: 13px;
+          line-height: 2.05;
+        }
+        .section {
+          padding-top: 65px;
+        }
+        .section-heading h2 {
+          font-size: 26px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="noise"></div>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="grid-bg"></div>
+
+    <main class="resume">
+      <header class="hero reveal">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="status-dot"></span> توسعه‌دهنده وبسایت
+          </div>
+          <h1>مهدی <span>باقری</span></h1>
+          <p class="hero-role" dir="ltr">
+            Next.js · React · TypeScript · NestJS
+          </p>
+          <p class="hero-value">
+            تمرکز بر ساخت محصولاتی سریع، تمیز، مقیاس‌پذیر و قابل توسعه.
+          </p>
+          <p class="intro">
+            توسعه‌دهنده نرم‌افزار با تمرکز بر فرانت‌اند حرفه‌ای و توسعه محصول با
+            Next.js و React. تجربه در طراحی رابط‌های کاربری مقیاس‌پذیر، ساخت
+            کامپوننت‌های قابل استفاده مجدد، معماری ماژولار و توسعه بک‌اند با
+            NestJS، REST API و احراز هویت Access/Refresh Token با رویکرد DDD؛ با
+            تمرکز بر کیفیت کد، تجربه کاربری و تحویل محصول واقعی.
+          </p>
+
+          <div class="contact-row">
+            <a href="mailto:mahdibagherichanel@gmail.com"
+              >mahdibagherichanel@gmail.com</a
+            >
+            <a href="tel:+989924164032">+98 992 416 4032</a>
+            <span>اصفهان، ایران</span>
+          </div>
+
+          <div class="socials">
+            <a
+              href="https://github.com/Mahdi-Devm"
+              target="_blank"
+              rel="noreferrer"
+              >گیت‌هاب ↗</a
+            >
+            <a
+              href="https://www.linkedin.com/in/mahdi-bagheri-494a4b365"
+              target="_blank"
+              rel="noreferrer"
+              >لینکدین ↗</a
+            >
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <span>آماده همکاری برای</span>
+            <span class="live">●</span>
+          </div>
+          <strong>Front-End · Full-Stack</strong>
+          <div class="code-line">
+            <span>const</span> craft = <b>"quality"</b>;
+          </div>
+          <div class="code-line">
+            <span>stack</span> = [Next.js, React, NestJS];
+          </div>
+          <div class="scan"></div>
+        </div>
+      </header>
+
+      <section class="section reveal">
+        <div class="section-heading">
+          <span>01</span>
+          <h2>مهارت‌های فنی</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <span class="skill-index">01</span>
+            <h3>فرانت‌اند</h3>
+            <p>React.js · Next.js · TypeScript · JavaScript</p>
+            <div class="tags">
+              <span>Tailwind</span><span>Shadcn UI</span
+              ><span>Design Systems</span><span>StoryBook</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-index">02</span>
+            <h3>بک‌اند</h3>
+            <p>NestJS · REST API · PostgreSQL · TypeORM · Redis</p>
+            <div class="tags">
+              <span>DDD</span><span>Auth</span><span>Architecture</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-index">03</span>
+            <h3>ابزارها</h3>
+            <p>Git · GitLab · Docker · Vercel</p>
+            <div class="tags">
+              <span>Monorepo</span><span>CI/CD mindset</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-heading">
+          <span>02</span>
+          <h2>سوابق حرفه‌ای</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <span>تیر ۱۴۰۴ — اسفند ۱۴۰۴</span>
+              <i></i>
+            </div>
+            <div class="timeline-content">
+              <h3>هم‌بنیان‌گذار / توسعه‌دهنده فرانت‌اند</h3>
+              <h4>Arayesh Time <em>— اصفهان</em></h4>
+              <ul>
+                <li>
+                  یک پلتفرم رزرو آنلاین موبایل‌فرست برای سالن‌های زیبایی توسعه
+                  دادم.
+                </li>
+                <li>
+                  معماری فرانت‌اند را با Next.js و TypeScript طراحی و پیاده‌سازی
+                  کردم.
+                </li>
+                <li>
+                  داشبوردها، فرایندهای رزرو، سیستم اعلان‌ها و بخش‌های محتوایی را
+                  پیاده‌سازی کردم.
+                </li>
+                <li>در طراحی محصول و تصمیم‌گیری‌های فنی همکاری کردم.</li>
+              </ul>
+              <a
+                class="project-link"
+                href="https://arayesh-time.ir"
+                target="_blank"
+                rel="noreferrer"
+                >arayesh-time.ir ↗</a
+              >
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <span>بهمن ۱۴۰۳ — دی ۱۴۰۴</span>
+              <i></i>
+            </div>
+            <div class="timeline-content">
+              <h3>توسعه‌دهنده فرانت‌اند</h3>
+              <h4>CrashCoinCapital <em>— تهران</em></h4>
+              <ul>
+                <li>
+                  رابط‌های کاربری فین‌تکی برای معاملات رمزارز و محصولات کیف پول
+                  دیجیتال توسعه دادم.
+                </li>
+                <li>
+                  کامپوننت‌های قابل استفاده مجدد React و سیستم‌های UI واکنش‌گرا
+                  ایجاد کردم.
+                </li>
+                <li>
+                  REST APIها را یکپارچه کردم و مدیریت وضعیت سمت سرور را با React
+                  Query انجام دادم.
+                </li>
+                <li>با TypeScript و Tailwind CSS کار کردم.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">
+              <span>مهر ۱۴۰۳ — دی ۱۴۰۴</span>
+              <i></i>
+            </div>
+            <div class="timeline-content">
+              <h3>توسعه‌دهنده فرانت‌اند</h3>
+              <h4>Ariunet <em>— اصفهان</em></h4>
+              <ul>
+                <li>
+                  وب‌سایت‌های کسب‌وکاری را با React و WordPress توسعه دادم.
+                </li>
+                <li>
+                  صفحات واکنش‌گرا و کامپوننت‌های قابل استفاده مجدد فرانت‌اند
+                  ساختم.
+                </li>
+                <li>
+                  برای تحویل وب‌سایت‌های آماده انتشار با مشتریان همکاری کردم.
+                </li>
+              </ul>
+              <div class="link-cloud">
+                <a href="https://ariunet.com/" target="_blank" rel="noreferrer"
+                  >ariunet.com ↗</a
+                >
+                <a href="https://medofan.com/" target="_blank" rel="noreferrer"
+                  >medofan.com ↗</a
+                >
+                <a
+                  href="https://www.maliko.ir/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >maliko.ir ↗</a
+                >
+                <a
+                  href="https://github.com/Mahdi-Devm/Tarkhineh"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Tarkhineh گیت‌هاب ↗</a
+                >
+                <a
+                  href="https://tarkhineh-f6ib.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >دموی Tarkhineh ↗</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-heading">
+          <span>03</span>
+          <h2>پروژه‌های منتخب</h2>
+        </div>
+
+        <div class="projects">
+          <a
+            class="project-card featured"
+            href="https://github.com/Mahdi-Devm/DriverHub"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="project-number">01</div>
+            <div>
+              <div class="project-top"><span>۱۴۰۵</span><b>فول‌استک</b></div>
+              <h3>DriverHub</h3>
+              <p>
+                پلتفرم فول‌استک رزرو آموزشگاه رانندگی که با Next.js، NestJS،
+                PostgreSQL و TypeScript ساخته شده است.
+              </p>
+              <small
+                >معماری ماژولار · Monorepo · پنل راننده · داشبورد کاربر</small
+              >
+            </div>
+            <span class="arrow">↗</span>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://kicks-iotathree.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="project-number">02</div>
+            <div>
+              <div class="project-top">
+                <span>۱۴۰۴</span><b>فروشگاه اینترنتی</b>
+              </div>
+              <h3>Kicks</h3>
+              <p>
+                پلتفرم مدرن فروشگاه اینترنتی با Next.js و TypeScript، با
+                کامپوننت‌های قابل استفاده مجدد Shadcn UI و Design System
+                اختصاصی.
+              </p>
+              <small>Clean Architecture · رابط کاربری واکنش‌گرا</small>
+            </div>
+            <span class="arrow">↗</span>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://github.com/authNN/auth-Next-Nest"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="project-number">03</div>
+            <div>
+              <div class="project-top"><span>۱۴۰۵</span><b>متن‌باز</b></div>
+              <h3>AuthNN</h3>
+              <p>
+                سیستم احراز هویت متن‌باز با فرایند Access/Refresh Token و معماری
+                امن و ماژولار احراز هویت.
+              </p>
+              <small>Next.js · NestJS · بک‌اند ماژولار</small>
+            </div>
+            <span class="arrow">↗</span>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://sito-saz.ir"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="project-number">04</div>
+            <div>
+              <div class="project-top">
+                <span>۱۴۰۴</span><b>سازنده وب‌سایت</b>
+              </div>
+              <h3>SitoSaz</h3>
+              <p>
+                فرانت‌اند یک پلتفرم هوشمند سایت‌ساز با کامپوننت‌های قابل استفاده
+                مجدد و اصول Design System.
+              </p>
+              <small>Next.js · TypeScript · Tailwind CSS · UX</small>
+            </div>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <footer class="footer reveal">
+        <div>
+          <span class="eyebrow">04 · تحصیلات</span>
+          <strong>دیپلم</strong>
+        </div>
+        <div>
+          <span class="eyebrow">زبان‌ها</span>
+          <strong>فارسی — زبان مادری · انگلیسی — متوسط</strong>
+        </div>
+        <div class="footer-mark">MB<span>.</span></div>
+      </footer>
+    </main>
+
+    <script>
+      (() => {
+        const root = document.documentElement;
+
+        // Pointer-following ambient glow
+        const glow = document.createElement("div");
+        glow.className = "cursor-glow";
+        document.body.appendChild(glow);
+
+        let mx = innerWidth / 2,
+          my = innerHeight / 2;
+        let gx = mx,
+          gy = my;
+
+        addEventListener(
+          "pointermove",
+          (e) => {
+            mx = e.clientX;
+            my = e.clientY;
+            root.style.setProperty("--mx", mx + "px");
+            root.style.setProperty("--my", my + "px");
+          },
+          { passive: true },
+        );
+
+        function animateGlow() {
+          gx += (mx - gx) * 0.12;
+          gy += (my - gy) * 0.12;
+          glow.style.transform = `translate3d(${gx - 180}px, ${gy - 180}px, 0)`;
+          requestAnimationFrame(animateGlow);
+        }
+        animateGlow();
+
+        // Scroll reveal
+        const revealItems = document.querySelectorAll(
+          ".reveal, .skill-card, .timeline-item, .project-card",
+        );
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 },
+        );
+
+        revealItems.forEach((el) => observer.observe(el));
+
+        // 3D tilt for cards
+        document
+          .querySelectorAll(".skill-card, .project-card, .hero-card")
+          .forEach((card) => {
+            card.addEventListener("pointermove", (e) => {
+              if (matchMedia("(hover: none)").matches) return;
+              const r = card.getBoundingClientRect();
+              const x = (e.clientX - r.left) / r.width - 0.5;
+              const y = (e.clientY - r.top) / r.height - 0.5;
+              const max = card.classList.contains("hero-card") ? 3 : 5;
+              card.style.setProperty("--rx", `${-y * max}deg`);
+              card.style.setProperty("--ry", `${x * max}deg`);
+            });
+            card.addEventListener("pointerleave", () => {
+              card.style.setProperty("--rx", "0deg");
+              card.style.setProperty("--ry", "0deg");
+            });
+          });
+
+        // Magnetic social / project links
+        document
+          .querySelectorAll(
+            ".socials a, .project-link, .link-cloud a, .project-card",
+          )
+          .forEach((el) => {
+            el.addEventListener("pointermove", (e) => {
+              if (matchMedia("(hover: none)").matches) return;
+              const r = el.getBoundingClientRect();
+              const x = e.clientX - (r.left + r.width / 2);
+              const y = e.clientY - (r.top + r.height / 2);
+              el.style.transform = `translate(${x * 0.06}px, ${y * 0.06}px)`;
+            });
+            el.addEventListener("pointerleave", () => {
+              el.style.transform = "";
+            });
+          });
+
+        // Smooth anchor behavior
+        document.querySelectorAll('a[href^="#"]').forEach((a) => {
+          a.addEventListener("click", (e) => {
+            const target = document.querySelector(a.getAttribute("href"));
+            if (!target) return;
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        });
+
+        // Dynamic current pointer coordinates for CSS effects
+        addEventListener("resize", () => {
+          root.style.setProperty("--mx", innerWidth / 2 + "px");
+          root.style.setProperty("--my", innerHeight / 2 + "px");
+        });
+      })();
+    </script>
+  </body>
+</html>
