@@ -6,6 +6,7 @@
     <meta
       name="description"
       content="مهدی باقری — Frontend Developer متخصص Next.js و React"
+      id="meta-desc"
     />
     <title>مهدی باقری — Frontend Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,6 +46,10 @@
         line-height: 1.8;
         direction: rtl;
         overflow-x: hidden;
+      }
+      body.en {
+        font-family: Inter, "Vazirmatn", system-ui, sans-serif;
+        direction: ltr;
       }
       a {
         color: inherit;
@@ -92,6 +97,40 @@
       .nav-links a:hover {
         color: var(--accent);
       }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .lang-switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 0;
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        overflow: hidden;
+        background: var(--surface);
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .lang-switch button {
+        border: none;
+        background: transparent;
+        color: var(--muted);
+        padding: 6px 10px;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 11px;
+        font-weight: 700;
+        transition: 0.2s;
+      }
+      .lang-switch button.active {
+        background: #f0f1f3;
+        color: #0a0b0d;
+      }
+      .lang-switch button:hover:not(.active) {
+        color: var(--text);
+      }
       .nav-cta {
         padding: 7px 14px;
         border-radius: 9px;
@@ -102,6 +141,7 @@
       }
       .nav-cta:hover {
         background: var(--accent-dark);
+        color: #fff;
       }
 
       .hero {
@@ -136,6 +176,9 @@
       h1 span {
         color: var(--accent);
       }
+      body.en h1 {
+        letter-spacing: -0.03em;
+      }
       .role {
         font-family: Inter, "Vazirmatn", sans-serif;
         direction: ltr;
@@ -144,6 +187,9 @@
         font-weight: 700;
         color: #c8cdd6;
         margin-bottom: 12px;
+      }
+      body.en .role {
+        text-align: left;
       }
       .hero-copy {
         color: var(--muted);
@@ -262,6 +308,9 @@
         direction: ltr;
         text-align: right;
       }
+      body.en .hero-stat b {
+        text-align: left;
+      }
       .hero-stat span {
         font-size: 10px;
         color: var(--muted);
@@ -354,6 +403,12 @@
         border-right: 2px solid #dfe4ed;
         padding-right: 22px;
       }
+      body.en .experience {
+        border-right: none;
+        border-left: 2px solid #dfe4ed;
+        padding-right: 0;
+        padding-left: 22px;
+      }
       .exp {
         position: relative;
         padding: 0 0 25px;
@@ -371,6 +426,10 @@
         border-radius: 50%;
         background: var(--surface);
         border: 2px solid var(--accent);
+      }
+      body.en .exp:before {
+        right: auto;
+        left: -29px;
       }
       .exp-date {
         font-size: 10px;
@@ -392,6 +451,10 @@
         color: #9aa1ad;
         font-size: 11.5px;
         line-height: 1.8;
+      }
+      body.en .exp ul {
+        padding-right: 0;
+        padding-left: 16px;
       }
       .exp li {
         margin-bottom: 2px;
@@ -415,224 +478,6 @@
         background: #181b21;
         color: #858d9a;
         font-size: 9px;
-      }
-
-      .featured-grid {
-        display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 14px;
-      }
-      .project {
-        display: flex;
-        flex-direction: column;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        overflow: hidden;
-        transition: 0.25s;
-      }
-      .project:hover {
-        transform: translateY(-4px);
-        border-color: #3a404b;
-        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
-      }
-      .project-cover {
-        height: 168px;
-        position: relative;
-        overflow: hidden;
-        background: #eef1f5;
-      }
-      .project-cover img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .project-cover:after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          180deg,
-          transparent 55%,
-          rgba(16, 24, 40, 0.15)
-        );
-        pointer-events: none;
-      }
-      .project-body {
-        padding: 16px;
-      }
-      .project-meta {
-        display: flex;
-        justify-content: space-between;
-        font-size: 9px;
-        color: var(--soft);
-        margin-bottom: 5px;
-      }
-      .project-meta .type {
-        color: var(--accent);
-        font-weight: 800;
-      }
-      .project h3 {
-        font-size: 16px;
-        margin-bottom: 5px;
-      }
-      .project p {
-        font-size: 11.5px;
-        color: var(--muted);
-        line-height: 1.85;
-      }
-      .project-tech {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-        margin-top: 11px;
-      }
-      .project-tech span {
-        font-size: 9px;
-        padding: 3px 7px;
-        border-radius: 5px;
-        background: var(--surface-2);
-        color: #9aa1ad;
-      }
-      .project-arrow {
-        position: absolute;
-        left: 11px;
-        top: 11px;
-        z-index: 2;
-        width: 30px;
-        height: 30px;
-        border-radius: 8px;
-        display: grid;
-        place-items: center;
-        background: rgba(17, 19, 24, 0.94);
-        color: var(--accent);
-        opacity: 0;
-        transition: 0.2s;
-        font-size: 13px;
-      }
-      .project:hover .project-arrow {
-        opacity: 1;
-      }
-
-      .featured-main {
-        grid-row: span 2;
-      }
-      .featured-main .project-cover {
-        height: 255px;
-      }
-
-      .other-wrap {
-        margin-top: 18px;
-        padding-top: 16px;
-        border-top: 1px solid var(--border);
-      }
-      .other-title {
-        font-size: 11px;
-        font-weight: 800;
-        margin-bottom: 9px;
-        color: #b3bac5;
-      }
-      .other-projects {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 8px;
-      }
-      .other {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 10px 11px;
-        transition: 0.2s;
-      }
-      .other:hover {
-        border-color: #3a404b;
-        transform: translateY(-2px);
-      }
-      .other b {
-        display: block;
-        font-size: 11px;
-        margin-bottom: 2px;
-      }
-      .other span {
-        font-size: 9px;
-        color: var(--soft);
-      }
-
-      .about {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-      }
-      .about-box {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 18px;
-      }
-      .about-box p {
-        font-size: 12px;
-        color: var(--muted);
-        line-height: 2;
-      }
-      .highlights {
-        display: grid;
-        gap: 8px;
-      }
-      .highlight {
-        display: flex;
-        gap: 10px;
-        align-items: flex-start;
-        padding: 11px;
-        background: var(--surface-2);
-        border-radius: 10px;
-      }
-      .highlight b {
-        font-size: 10px;
-        color: var(--accent);
-      }
-      .highlight strong {
-        display: block;
-        font-size: 11px;
-      }
-      .highlight span {
-        display: block;
-        font-size: 9.5px;
-        color: var(--muted);
-      }
-
-      footer {
-        border-top: 1px solid var(--border);
-        padding: 28px 0 30px;
-        margin-top: 15px;
-      }
-      .footer {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        align-items: center;
-      }
-      .footer p {
-        font-size: 10px;
-        color: var(--soft);
-      }
-      .footer-links {
-        display: flex;
-        gap: 14px;
-        font-size: 10px;
-        color: var(--muted);
-      }
-      .footer-links a:hover {
-        color: var(--accent);
-      }
-
-      .reveal {
-        opacity: 0;
-        transform: translateY(18px);
-        transition: 0.65s ease;
-      }
-      .reveal.on {
-        opacity: 1;
-        transform: none;
       }
 
       .projects-grid {
@@ -684,12 +529,14 @@
         right: 9px;
         top: 8px;
         z-index: 2;
-        font:
-          700 9px Inter,
-          sans-serif;
+        font: 700 9px Inter, sans-serif;
         color: #fff;
         opacity: 0.75;
         direction: ltr;
+      }
+      body.en .project-num {
+        right: auto;
+        left: 9px;
       }
       .project-open {
         position: absolute;
@@ -706,6 +553,10 @@
         font-size: 12px;
         opacity: 0;
         transition: 0.2s;
+      }
+      body.en .project-open {
+        left: auto;
+        right: 9px;
       }
       .project-card:hover .project-open {
         opacity: 1;
@@ -763,32 +614,42 @@
       .compact-card .project-card-body p {
         min-height: 39px;
       }
-      .placeholder-thumb {
-        display: grid;
-        place-items: center;
-        background: linear-gradient(135deg, #111318, #1a1e25);
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 28px 0 30px;
+        margin-top: 15px;
       }
-      .placeholder-label {
-        font:
-          800 18px Inter,
-          sans-serif;
-        letter-spacing: 0.12em;
-        color: #343a45;
-      }
-      .project-more {
+      .footer {
         display: flex;
         justify-content: space-between;
+        gap: 20px;
         align-items: center;
-        margin-top: 10px;
-        padding: 10px 13px;
-        border-top: 1px solid var(--border);
-        font-size: 9px;
+      }
+      .footer p {
+        font-size: 10px;
         color: var(--soft);
       }
-      .project-more a {
-        color: #d8dce3;
-        font-weight: 700;
+      .footer-links {
+        display: flex;
+        gap: 14px;
+        font-size: 10px;
+        color: var(--muted);
       }
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: 0.65s ease;
+      }
+      .reveal.on {
+        opacity: 1;
+        transform: none;
+      }
+
       @media (max-width: 850px) {
         .projects-grid {
           grid-template-columns: repeat(2, 1fr);
@@ -800,19 +661,8 @@
         .hero-card {
           max-width: 460px;
         }
-        .skills,
-        .featured-grid,
-        .about {
+        .skills {
           grid-template-columns: 1fr;
-        }
-        .featured-main {
-          grid-row: auto;
-        }
-        .featured-main .project-cover {
-          height: 200px;
-        }
-        .other-projects {
-          grid-template-columns: repeat(2, 1fr);
         }
       }
       @media (max-width: 560px) {
@@ -826,14 +676,6 @@
         .compact-card .project-thumb {
           height: 145px;
         }
-        .project-more {
-          display: block;
-        }
-        .project-more span {
-          display: block;
-          margin-top: 4px;
-        }
-
         .nav-links {
           display: none;
         }
@@ -861,14 +703,15 @@
         .btn {
           width: 100%;
         }
-        .other-projects {
-          grid-template-columns: 1fr 1fr;
-        }
         .footer {
           display: block;
         }
         .footer-links {
           margin-top: 10px;
+        }
+        .lang-switch button {
+          padding: 5px 8px;
+          font-size: 10px;
         }
       }
     </style>
@@ -879,29 +722,34 @@
       <div class="container nav-inner">
         <a href="#" class="logo">MB</a>
         <div class="nav-links">
-          <a href="#skills">مهارت‌ها</a>
-          <a href="#projects">پروژه‌ها</a>
-          <a href="#experience">سوابق</a>
-          <a href="#about">درباره</a>
+          <a href="#skills" data-i18n="nav.skills">مهارت‌ها</a>
+          <a href="#projects" data-i18n="nav.projects">پروژه‌ها</a>
+          <a href="#experience" data-i18n="nav.experience">سوابق</a>
         </div>
-        <a class="nav-cta" href="mailto:mahdibagherichanel@gmail.com">تماس</a>
+        <div class="nav-right">
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button type="button" data-lang="fa" class="active">FA</button>
+            <button type="button" data-lang="en">EN</button>
+          </div>
+          <a class="nav-cta" href="mailto:mahdibagherichanel@gmail.com" data-i18n="nav.contact">تماس</a>
+        </div>
       </div>
     </nav>
 
     <main>
       <section class="hero container">
         <div>
-          <div class="eyebrow"><i></i> آماده همکاری</div>
-          <h1>مهدی <span>باقری</span></h1>
+          <div class="eyebrow"><i></i><span data-i18n="hero.eyebrow">آماده همکاری</span></div>
+          <h1 data-i18n="hero.name">مهدی <span>باقری</span></h1>
           <div class="role">Frontend Developer · Next.js / React</div>
-          <p class="hero-copy">
+          <p class="hero-copy" data-i18n="hero.copy">
             توسعه‌دهنده فرانت‌اند با تمرکز اصلی روی
             <strong>Next.js، React و TypeScript</strong>. تجربه ساخت رابط‌های
             مدرن، Design System، داشبورد و محصولات واقعی؛ با آشنایی عملی با
             NestJS و توسعه فول‌استک.
           </p>
           <div class="actions">
-            <a class="btn btn-primary" href="#projects">مشاهده نمونه‌کارها</a>
+            <a class="btn btn-primary" href="#projects" data-i18n="hero.cta1">مشاهده نمونه‌کارها</a>
             <a
               class="btn btn-secondary"
               href="https://github.com/Mahdi-Devm"
@@ -922,22 +770,22 @@
               >mahdibagherichanel@gmail.com</a
             >
             <a href="tel:+989924164032">09924164032 | 09910485161</a>
-            <span>اصفهان، ایران</span>
+            <span data-i18n="hero.location">اصفهان، ایران</span>
           </div>
         </div>
 
         <aside class="hero-card">
-          <div class="hero-card-label">PRIMARY FOCUS</div>
+          <div class="hero-card-label" data-i18n="hero.focusLabel">PRIMARY FOCUS</div>
           <div class="focus">
             <div class="focus-icon">N</div>
             <div>
-              <strong>Frontend Engineering</strong>
+              <strong data-i18n="hero.focusTitle">Frontend Engineering</strong>
               <span>Next.js · React · TypeScript</span>
             </div>
           </div>
           <div class="hero-stats">
-            <div class="hero-stat"><b>+5</b><span>پروژه منتخب</span></div>
-            <div class="hero-stat"><b>+2</b><span>سال تجربه</span></div>
+            <div class="hero-stat"><b>+5</b><span data-i18n="hero.stat1">پروژه منتخب</span></div>
+            <div class="hero-stat"><b>+2</b><span data-i18n="hero.stat2">سال تجربه</span></div>
           </div>
         </aside>
       </section>
@@ -946,17 +794,17 @@
         <div class="section-head">
           <div>
             <div class="section-kicker">CORE SKILLS</div>
-            <h2>مهارت‌های اصلی</h2>
+            <h2 data-i18n="skills.title">مهارت‌های اصلی</h2>
           </div>
-          <div class="section-note">تمرکز رزومه: Frontend / Next.js</div>
+          <div class="section-note" data-i18n="skills.note">تمرکز رزومه: Frontend / Next.js</div>
         </div>
         <div class="skills">
           <article class="skill primary">
             <div class="skill-title">
-              <h3>Frontend Engineering</h3>
+              <h3 data-i18n="skills.fe.title">Frontend Engineering</h3>
               <span class="level">PRIMARY</span>
             </div>
-            <p>
+            <p data-i18n="skills.fe.desc">
               ساخت UI سریع، تمیز و قابل نگهداری با تمرکز روی معماری
               کامپوننت‌محور و تجربه کاربری.
             </p>
@@ -965,30 +813,30 @@
               ><span class="chip">TypeScript</span>
               <span class="chip">Tailwind CSS</span
               ><span class="chip">shadcn/ui</span
-              ><span class="chip">Zudstand</span>
+              ><span class="chip">Zustand</span>
               <span class="chip">Zod</span>
-              <span class="chip">StoryBook</span>
+              <span class="chip">Storybook</span>
               <span class="chip">Design System</span>
             </div>
           </article>
           <article class="skill">
             <div class="skill-title">
-              <h3>Backend</h3>
+              <h3 data-i18n="skills.be.title">Backend</h3>
               <span class="level">SECONDARY</span>
             </div>
-            <p>توسعه API و معماری ماژولار برای پروژه‌های فول‌استک.</p>
+            <p data-i18n="skills.be.desc">توسعه API و معماری ماژولار برای پروژه‌های فول‌استک.</p>
             <div class="chips">
               <span class="chip">NestJS</span><span class="chip">REST API</span
               ><span class="chip">PostgreSQL</span>
               <span class="chip">TypeORM</span><span class="chip">Redis</span
-            </div>
+            ></div>
           </article>
           <article class="skill">
             <div class="skill-title">
-              <h3>Tools</h3>
+              <h3 data-i18n="skills.tools.title">Tools</h3>
               <span class="level">WORKFLOW</span>
             </div>
-            <p>ابزارهای مورد استفاده در توسعه و تحویل محصول.</p>
+            <p data-i18n="skills.tools.desc">ابزارهای مورد استفاده در توسعه و تحویل محصول.</p>
             <div class="chips">
               <span class="chip">Git</span><span class="chip">Docker</span
               ><span class="chip">Vercel</span>
@@ -1002,9 +850,9 @@
         <div class="section-head">
           <div>
             <div class="section-kicker">SELECTED WORK</div>
-            <h2>پروژه‌ها و تجربه‌های فنی</h2>
+            <h2 data-i18n="projects.title">پروژه‌ها و تجربه‌های فنی</h2>
           </div>
-          <div class="section-note">تمرکز روی قابلیت‌ها، معماری و تکنولوژی</div>
+          <div class="section-note" data-i18n="projects.note">تمرکز روی قابلیت‌ها، معماری و تکنولوژی</div>
         </div>
 
         <div class="projects-grid">
@@ -1022,10 +870,10 @@
             </div>
             <div class="project-card-body">
               <div class="project-top">
-                <span>FULL-STACK · BOOKING</span><small>Featured</small>
+                <span>FULL-STACK · BOOKING</span><small data-i18n="projects.featured">Featured</small>
               </div>
               <h3>DriverHub</h3>
-              <p>
+              <p data-i18n="projects.driverhub">
                 پلتفرم رزرو آموزشگاه رانندگی با فرایند رزرو، داشبوردهای مدیریتی
                 و ساختار Monorepo؛ با تمرکز روی UI قابل توسعه و کامپوننت‌های
                 reusable.
@@ -1051,10 +899,10 @@
             </div>
             <div class="project-card-body">
               <div class="project-top">
-                <span>FINTECH · PRODUCT</span><small>Featured</small>
+                <span>FINTECH · PRODUCT</span><small data-i18n="projects.featured">Featured</small>
               </div>
               <h3>Maliko</h3>
-              <p>
+              <p data-i18n="projects.maliko">
                 محصول مدیریت مالی شخصی با مدیریت تراکنش‌ها و حساب‌ها، دسته‌بندی
                 هزینه‌ها و نمایش داده‌های مالی در قالب داشبورد و تحلیل.
               </p>
@@ -1078,10 +926,10 @@
             </div>
             <div class="project-card-body">
               <div class="project-top">
-                <span>SAAS · MANAGEMENT</span><small>Featured</small>
+                <span>SAAS · MANAGEMENT</span><small data-i18n="projects.featured">Featured</small>
               </div>
               <h3>Dofixo</h3>
-              <p>
+              <p data-i18n="projects.dofixo">
                 سیستم SaaS مدیریت تعمیرگاه با مدیریت مشتری و دستگاه، انبار،
                 فاکتور، عملیات و گزارش‌های مدیریتی در یک داشبورد متمرکز.
               </p>
@@ -1107,7 +955,7 @@
             <div class="project-card-body">
               <div class="project-top"><span>AI · SAAS</span></div>
               <h3>ByteMind</h3>
-              <p>
+              <p data-i18n="projects.bytemind">
                 رابط SaaS مبتنی بر AI با ساختار محصول‌محور و تجربه کاربری مدرن.
               </p>
               <div class="project-stack">
@@ -1132,7 +980,7 @@
             <div class="project-card-body">
               <div class="project-top"><span>DASHBOARD · ADMIN</span></div>
               <h3>DashStack</h3>
-              <p>
+              <p data-i18n="projects.dashstack">
                 داشبورد مدیریتی با تمرکز روی ساختار داده، navigation، جداول و
                 کامپوننت‌های UI.
               </p>
@@ -1157,7 +1005,7 @@
             <div class="project-card-body">
               <div class="project-top"><span>E-COMMERCE</span></div>
               <h3>Kicks</h3>
-              <p>
+              <p data-i18n="projects.kicks">
                 فروشگاه آنلاین با تمرکز روی UI محصول، صفحات فروشگاهی و
                 کامپوننت‌های قابل استفاده مجدد.
               </p>
@@ -1183,7 +1031,7 @@
             <div class="project-card-body">
               <div class="project-top"><span>WEB PLATFORM</span></div>
               <h3>SitoSaz</h3>
-              <p>
+              <p data-i18n="projects.sitosaz">
                 پلتفرم ساخت و مدیریت وب‌سایت با تمرکز روی UI system و توسعه
                 کامپوننت‌های قابل توسعه.
               </p>
@@ -1204,7 +1052,7 @@
             <div class="project-card-body">
               <div class="project-top"><span>BOOKING · PRODUCT</span></div>
               <h3>Arayesh Time</h3>
-              <p>
+              <p data-i18n="projects.arayesh">
                 پلتفرم رزرو آنلاین سالن‌های زیبایی با فرایند انتخاب سرویس، تاریخ
                 و زمان و تجربه موبایل‌محور.
               </p>
@@ -1225,7 +1073,7 @@
             <div class="project-card-body">
               <div class="project-top"><span>FINTECH · CRYPTO</span></div>
               <h3>CrashCoin Capital</h3>
-              <p>
+              <p data-i18n="projects.crashcoin">
                 رابط فین‌تکی برای تجربه معاملات رمزارز و کیف پول دیجیتال با
                 کامپوننت‌های reusable.
               </p>
@@ -1236,27 +1084,25 @@
             </div>
           </div>
         </div>
-
-
       </section>
 
       <section id="experience" class="container reveal">
         <div class="section-head">
           <div>
             <div class="section-kicker">EXPERIENCE</div>
-            <h2>سوابق حرفه‌ای</h2>
+            <h2 data-i18n="exp.title">سوابق حرفه‌ای</h2>
           </div>
         </div>
         <div class="experience">
           <article class="exp">
-            <div class="exp-date">حدود ۷ ماه · پاره‌وقت / تیمی / دورکاری</div>
-            <h3>توسعه‌دهنده فرانت‌اند</h3>
-            <div class="company">تیم پیشرو توسعه</div>
+            <div class="exp-date" data-i18n="exp1.date">حدود ۷ ماه · پاره‌وقت / تیمی / دورکاری</div>
+            <h3 data-i18n="exp1.role">توسعه‌دهنده فرانت‌اند</h3>
+            <div class="company" data-i18n="exp1.company">تیم پیشرو توسعه</div>
             <ul>
-              <li>
+              <li data-i18n="exp1.li1">
                 توسعه فرانت‌اند محصولات Maliko، Dofixo، ByteMind و DashStack
               </li>
-              <li>کار با Next.js، React، TypeScript و معماری کامپوننت‌محور</li>
+              <li data-i18n="exp1.li2">کار با Next.js، React، TypeScript و معماری کامپوننت‌محور</li>
             </ul>
             <div class="exp-links">
               <a href="https://www.maliko.ir/" target="_blank">Maliko ↗</a
@@ -1268,17 +1114,16 @@
           </article>
 
           <article class="exp">
-            <div class="exp-date">۱۴۰۴ · فریلنس</div>
-            <h3>توسعه‌دهنده فرانت‌اند</h3>
+            <div class="exp-date" data-i18n="exp2.date">۱۴۰۴ · فریلنس</div>
+            <h3 data-i18n="exp2.role">توسعه‌دهنده فرانت‌اند</h3>
             <div class="company">مگاوات (MegaWaat)</div>
 
             <ul>
-              <li>
+              <li data-i18n="exp2.li1">
                 توسعه و پیاده‌سازی بخش قابل توجهی از یک پروژه وب دو زبانه با
                 <strong>Next.js</strong> و مشارکت در پیشبرد حدود ۵۰٪ از پروژه.
               </li>
-
-              <li>
+              <li data-i18n="exp2.li2">
                 همکاری در توسعه محصول و تبدیل طراحی‌ها و نیازمندی‌های پروژه به
                 صفحات و کامپوننت‌های قابل استفاده در محصول.
               </li>
@@ -1290,7 +1135,7 @@
                 target="_blank"
                 rel="noreferrer"
               >
-                مشاهده دمو ↗
+                <span data-i18n="exp2.link1">مشاهده دمو ↗</span>
               </a>
               <a
                 href="https://www.linkedin.com/company/megawaat/"
@@ -1303,41 +1148,41 @@
           </article>
 
           <article class="exp">
-            <div class="exp-date">تیر ۱۴۰۴ — اسفند ۱۴۰۴</div>
-            <h3>هم‌بنیان‌گذار و توسعه‌دهنده فرانت‌اند</h3>
+            <div class="exp-date" data-i18n="exp3.date">تیر ۱۴۰۴ — اسفند ۱۴۰۴</div>
+            <h3 data-i18n="exp3.role">هم‌بنیان‌گذار و توسعه‌دهنده فرانت‌اند</h3>
             <div class="company">Arayesh Time — اصفهان</div>
             <ul>
-              <li>توسعه پلتفرم رزرو آنلاین موبایل‌فرست برای سالن‌های زیبایی</li>
-              <li>
+              <li data-i18n="exp3.li1">توسعه پلتفرم رزرو آنلاین موبایل‌فرست برای سالن‌های زیبایی</li>
+              <li data-i18n="exp3.li2">
                 طراحی معماری فرانت‌اند با Next.js و TypeScript و پیاده‌سازی
                 داشبورد و فرایند رزرو
               </li>
             </ul>
-            <span class="closed">متوقف‌شده به‌دلیل شرایط اقتصادی (arayesh-time.ir)</span>
+            <span class="closed" data-i18n="exp3.closed">متوقف‌شده به‌دلیل شرایط اقتصادی (arayesh-time.ir)</span>
           </article>
 
           <article class="exp">
-            <div class="exp-date">بهمن ۱۴۰۳ — دی ۱۴۰۴</div>
-            <h3>توسعه‌دهنده فرانت‌اند</h3>
+            <div class="exp-date" data-i18n="exp4.date">بهمن ۱۴۰۳ — دی ۱۴۰۴</div>
+            <h3 data-i18n="exp4.role">توسعه‌دهنده فرانت‌اند</h3>
             <div class="company">CrashCoinCapital — تهران</div>
             <ul>
-              <li>
+              <li data-i18n="exp4.li1">
                 توسعه رابط‌های فین‌تکی برای معاملات رمزارز و محصولات کیف پول
                 دیجیتال
               </li>
-              <li>
+              <li data-i18n="exp4.li2">
                 کامپوننت‌های قابل استفاده مجدد React، REST API و React Query
               </li>
             </ul>
-            <span class="closed">متوقف‌شده به‌دلیل شرایط اقتصادی (crashcoincapital.com)</span>
+            <span class="closed" data-i18n="exp4.closed">متوقف‌شده به‌دلیل شرایط اقتصادی (crashcoincapital.com)</span>
           </article>
 
           <article class="exp">
-            <div class="exp-date">۲۰۲۴ · حدود ۲ ماه</div>
-            <h3>توسعه‌دهنده فرانت‌اند</h3>
+            <div class="exp-date" data-i18n="exp5.date">۲۰۲۴ · حدود ۲ ماه</div>
+            <h3 data-i18n="exp5.role">توسعه‌دهنده فرانت‌اند</h3>
             <div class="company">Ariunet</div>
             <ul>
-              <li>توسعه وب‌سایت‌های کسب‌وکاری با React و WordPress</li>
+              <li data-i18n="exp5.li1">توسعه وب‌سایت‌های کسب‌وکاری با React و WordPress</li>
             </ul>
             <div class="exp-links">
               <a href="https://ariunet.com/" target="_blank">ariunet.com ↗</a
@@ -1350,7 +1195,7 @@
 
     <footer>
       <div class="container footer">
-        <p>© ۱۴۰۵ مهدی باقری · Frontend Developer</p>
+        <p data-i18n="footer.copy">© ۱۴۰۵ مهدی باقری · Frontend Developer</p>
         <div class="footer-links">
           <a href="mailto:mahdibagherichanel@gmail.com">Email</a>
           <a href="https://github.com/Mahdi-Devm" target="_blank">GitHub</a>
@@ -1364,6 +1209,218 @@
     </footer>
 
     <script>
+      const translations = {
+        fa: {
+          "meta.desc": "مهدی باقری — Frontend Developer متخصص Next.js و React",
+          "meta.title": "مهدی باقری — Frontend Developer",
+          "nav.skills": "مهارت‌ها",
+          "nav.projects": "پروژه‌ها",
+          "nav.experience": "سوابق",
+          "nav.contact": "تماس",
+          "hero.eyebrow": "آماده همکاری",
+          "hero.name": "مهدی <span>باقری</span>",
+          "hero.copy":
+            "توسعه‌دهنده فرانت‌اند با تمرکز اصلی روی <strong>Next.js، React و TypeScript</strong>. تجربه ساخت رابط‌های مدرن، Design System، داشبورد و محصولات واقعی؛ با آشنایی عملی با NestJS و توسعه فول‌استک.",
+          "hero.cta1": "مشاهده نمونه‌کارها",
+          "hero.location": "اصفهان، ایران",
+          "hero.focusLabel": "PRIMARY FOCUS",
+          "hero.focusTitle": "Frontend Engineering",
+          "hero.stat1": "پروژه منتخب",
+          "hero.stat2": "سال تجربه",
+          "skills.title": "مهارت‌های اصلی",
+          "skills.note": "تمرکز رزومه: Frontend / Next.js",
+          "skills.fe.title": "Frontend Engineering",
+          "skills.fe.desc":
+            "ساخت UI سریع، تمیز و قابل نگهداری با تمرکز روی معماری کامپوننت‌محور و تجربه کاربری.",
+          "skills.be.title": "Backend",
+          "skills.be.desc": "توسعه API و معماری ماژولار برای پروژه‌های فول‌استک.",
+          "skills.tools.title": "Tools",
+          "skills.tools.desc": "ابزارهای مورد استفاده در توسعه و تحویل محصول.",
+          "projects.title": "پروژه‌ها و تجربه‌های فنی",
+          "projects.note": "تمرکز روی قابلیت‌ها، معماری و تکنولوژی",
+          "projects.featured": "Featured",
+          "projects.driverhub":
+            "پلتفرم رزرو آموزشگاه رانندگی با فرایند رزرو، داشبوردهای مدیریتی و ساختار Monorepo؛ با تمرکز روی UI قابل توسعه و کامپوننت‌های reusable.",
+          "projects.maliko":
+            "محصول مدیریت مالی شخصی با مدیریت تراکنش‌ها و حساب‌ها، دسته‌بندی هزینه‌ها و نمایش داده‌های مالی در قالب داشبورد و تحلیل.",
+          "projects.dofixo":
+            "سیستم SaaS مدیریت تعمیرگاه با مدیریت مشتری و دستگاه، انبار، فاکتور، عملیات و گزارش‌های مدیریتی در یک داشبورد متمرکز.",
+          "projects.bytemind":
+            "رابط SaaS مبتنی بر AI با ساختار محصول‌محور و تجربه کاربری مدرن.",
+          "projects.dashstack":
+            "داشبورد مدیریتی با تمرکز روی ساختار داده، navigation، جداول و کامپوننت‌های UI.",
+          "projects.kicks":
+            "فروشگاه آنلاین با تمرکز روی UI محصول، صفحات فروشگاهی و کامپوننت‌های قابل استفاده مجدد.",
+          "projects.sitosaz":
+            "پلتفرم ساخت و مدیریت وب‌سایت با تمرکز روی UI system و توسعه کامپوننت‌های قابل توسعه.",
+          "projects.arayesh":
+            "پلتفرم رزرو آنلاین سالن‌های زیبایی با فرایند انتخاب سرویس، تاریخ و زمان و تجربه موبایل‌محور.",
+          "projects.crashcoin":
+            "رابط فین‌تکی برای تجربه معاملات رمزارز و کیف پول دیجیتال با کامپوننت‌های reusable.",
+          "exp.title": "سوابق حرفه‌ای",
+          "exp1.date": "حدود ۷ ماه · پاره‌وقت / تیمی / دورکاری",
+          "exp1.role": "توسعه‌دهنده فرانت‌اند",
+          "exp1.company": "تیم پیشرو توسعه",
+          "exp1.li1":
+            "توسعه فرانت‌اند محصولات Maliko، Dofixo، ByteMind و DashStack",
+          "exp1.li2": "کار با Next.js، React، TypeScript و معماری کامپوننت‌محور",
+          "exp2.date": "۱۴۰۴ · فریلنس",
+          "exp2.role": "توسعه‌دهنده فرانت‌اند",
+          "exp2.li1":
+            "توسعه و پیاده‌سازی بخش قابل توجهی از یک پروژه وب دو زبانه با <strong>Next.js</strong> و مشارکت در پیشبرد حدود ۵۰٪ از پروژه.",
+          "exp2.li2":
+            "همکاری در توسعه محصول و تبدیل طراحی‌ها و نیازمندی‌های پروژه به صفحات و کامپوننت‌های قابل استفاده در محصول.",
+          "exp2.link1": "مشاهده دمو ↗",
+          "exp3.date": "تیر ۱۴۰۴ — اسفند ۱۴۰۴",
+          "exp3.role": "هم‌بنیان‌گذار و توسعه‌دهنده فرانت‌اند",
+          "exp3.li1": "توسعه پلتفرم رزرو آنلاین موبایل‌فرست برای سالن‌های زیبایی",
+          "exp3.li2":
+            "طراحی معماری فرانت‌اند با Next.js و TypeScript و پیاده‌سازی داشبورد و فرایند رزرو",
+          "exp3.closed": "متوقف‌شده به‌دلیل شرایط اقتصادی (arayesh-time.ir)",
+          "exp4.date": "بهمن ۱۴۰۳ — دی ۱۴۰۴",
+          "exp4.role": "توسعه‌دهنده فرانت‌اند",
+          "exp4.li1":
+            "توسعه رابط‌های فین‌تکی برای معاملات رمزارز و محصولات کیف پول دیجیتال",
+          "exp4.li2":
+            "کامپوننت‌های قابل استفاده مجدد React، REST API و React Query",
+          "exp4.closed":
+            "متوقف‌شده به‌دلیل شرایط اقتصادی (crashcoincapital.com)",
+          "exp5.date": "۲۰۲۴ · حدود ۲ ماه",
+          "exp5.role": "توسعه‌دهنده فرانت‌اند",
+          "exp5.li1": "توسعه وب‌سایت‌های کسب‌وکاری با React و WordPress",
+          "footer.copy": "© ۱۴۰۵ مهدی باقری · Frontend Developer",
+        },
+        en: {
+          "meta.desc":
+            "Mahdi Bagheri — Frontend Developer specializing in Next.js and React",
+          "meta.title": "Mahdi Bagheri — Frontend Developer",
+          "nav.skills": "Skills",
+          "nav.projects": "Projects",
+          "nav.experience": "Experience",
+          "nav.contact": "Contact",
+          "hero.eyebrow": "Available for work",
+          "hero.name": "Mahdi <span>Bagheri</span>",
+          "hero.copy":
+            "Frontend developer focused on <strong>Next.js, React & TypeScript</strong>. Experience building modern UIs, Design Systems, dashboards, and real products — with practical familiarity with NestJS and full-stack development.",
+          "hero.cta1": "View portfolio",
+          "hero.location": "Isfahan, Iran",
+          "hero.focusLabel": "PRIMARY FOCUS",
+          "hero.focusTitle": "Frontend Engineering",
+          "hero.stat1": "Selected projects",
+          "hero.stat2": "Years experience",
+          "skills.title": "Core skills",
+          "skills.note": "Resume focus: Frontend / Next.js",
+          "skills.fe.title": "Frontend Engineering",
+          "skills.fe.desc":
+            "Building fast, clean, and maintainable UIs with a component-driven architecture and strong UX focus.",
+          "skills.be.title": "Backend",
+          "skills.be.desc":
+            "API development and modular architecture for full-stack projects.",
+          "skills.tools.title": "Tools",
+          "skills.tools.desc":
+            "Tools used in development and product delivery.",
+          "projects.title": "Projects & technical work",
+          "projects.note": "Focus on features, architecture & technology",
+          "projects.featured": "Featured",
+          "projects.driverhub":
+            "Driving school booking platform with reservation flow, admin dashboards, and Monorepo structure — focused on scalable UI and reusable components.",
+          "projects.maliko":
+            "Personal finance product with transaction & account management, expense categorization, and financial data visualized through dashboards and analytics.",
+          "projects.dofixo":
+            "SaaS workshop management system with customer & device management, inventory, invoicing, operations, and management reports in a centralized dashboard.",
+          "projects.bytemind":
+            "AI-powered SaaS interface with a product-oriented structure and modern user experience.",
+          "projects.dashstack":
+            "Admin dashboard focused on data structure, navigation, tables, and UI components.",
+          "projects.kicks":
+            "Online store focused on product UI, e-commerce pages, and reusable components.",
+          "projects.sitosaz":
+            "Website builder & management platform focused on UI system and scalable component development.",
+          "projects.arayesh":
+            "Online booking platform for beauty salons with service, date & time selection and a mobile-first experience.",
+          "projects.crashcoin":
+            "Fintech interface for crypto trading and digital wallet experience with reusable components.",
+          "exp.title": "Professional experience",
+          "exp1.date": "≈ 7 months · Part-time / Team / Remote",
+          "exp1.role": "Frontend Developer",
+          "exp1.company": "Pishro Development Team",
+          "exp1.li1":
+            "Frontend development for Maliko, Dofixo, ByteMind, and DashStack",
+          "exp1.li2":
+            "Worked with Next.js, React, TypeScript, and component-driven architecture",
+          "exp2.date": "2025 · Freelance",
+          "exp2.role": "Frontend Developer",
+          "exp2.li1":
+            "Developed and implemented a significant part of a bilingual web project with <strong>Next.js</strong>, contributing to roughly 50% of the project.",
+          "exp2.li2":
+            "Collaborated on product development and turned designs and requirements into usable pages and components.",
+          "exp2.link1": "View demo ↗",
+          "exp3.date": "Jul 2025 — Mar 2026",
+          "exp3.role": "Co-founder & Frontend Developer",
+          "exp3.li1":
+            "Built a mobile-first online booking platform for beauty salons",
+          "exp3.li2":
+            "Designed frontend architecture with Next.js & TypeScript and implemented dashboard and booking flow",
+          "exp3.closed": "Discontinued due to economic conditions (arayesh-time.ir)",
+          "exp4.date": "Feb 2025 — Jan 2026",
+          "exp4.role": "Frontend Developer",
+          "exp4.li1":
+            "Developed fintech interfaces for crypto trading and digital wallet products",
+          "exp4.li2":
+            "Reusable React components, REST API, and React Query",
+          "exp4.closed":
+            "Discontinued due to economic conditions (crashcoincapital.com)",
+          "exp5.date": "2024 · ≈ 2 months",
+          "exp5.role": "Frontend Developer",
+          "exp5.li1": "Built business websites with React and WordPress",
+          "footer.copy": "© 2026 Mahdi Bagheri · Frontend Developer",
+        },
+      };
+
+      let currentLang = localStorage.getItem("lang") || "fa";
+
+      function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem("lang", lang);
+
+        const html = document.documentElement;
+        const body = document.body;
+
+        if (lang === "en") {
+          html.setAttribute("lang", "en");
+          html.setAttribute("dir", "ltr");
+          body.classList.add("en");
+        } else {
+          html.setAttribute("lang", "fa");
+          html.setAttribute("dir", "rtl");
+          body.classList.remove("en");
+        }
+
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          const text = translations[lang][key];
+          if (text !== undefined) {
+            el.innerHTML = text;
+          }
+        });
+
+        document.title = translations[lang]["meta.title"];
+        const metaDesc = document.getElementById("meta-desc");
+        if (metaDesc) metaDesc.setAttribute("content", translations[lang]["meta.desc"]);
+
+        document.querySelectorAll(".lang-switch button").forEach((btn) => {
+          btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+        });
+      }
+
+      document.querySelectorAll(".lang-switch button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          setLanguage(btn.getAttribute("data-lang"));
+        });
+      });
+
+      setLanguage(currentLang);
+
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
